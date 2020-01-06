@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.Browser;
 import android.support.customtabs.CustomTabsIntent;
 import android.text.TextUtils;
+import android.net.Uri;
 
 import com.droibit.android.customtabs.launcher.CustomTabsLauncher;
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
@@ -103,7 +104,7 @@ public class CustomTabsModule extends ReactContextBaseJavaModule {
             );
             final Activity activity = getCurrentActivity();
             if (activity != null) {
-                CustomTabsLauncher.launch(activity, customTabsIntent, url);
+                CustomTabsLauncher.launch(activity, customTabsIntent, Uri.parse(url));
                 promise.resolve(true);
             } else {
                 promise.resolve(false);
